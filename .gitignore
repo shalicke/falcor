@@ -7,4 +7,6 @@ pom.xml
 /checkouts
 /.env
 /target
-**/*.#
+**/*.#*
+/.lein*
+/.nrepl-port

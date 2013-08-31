@@ -29,12 +29,15 @@
   (ANY "/repl" {:as req}
                 (drawbridge req))
   (GET "/" []
-       {:status 200
-        :headers {"Content-Type" "text/plain"}
-        :body (pr-str ["Hello" :from 'Heroku])})
+       views/index-page)
+  (GET "/about" []
+       views/about-page)
+  (GET "/contact" []
+       views/contact-page)
   (GET "/info" []
        views/info-page)
-  (ANY "*" []
+  (route/resources "/")
+  (ANY "*" ]
        (route/not-found (slurp (io/resource "404.html")))))
 
 (defn wrap-error-page [handler]
@@ -58,7 +61,5 @@
                      {:port port :join? false})))
 
 ;; For interactive development:
-
-;(declare server)
-;(.stop server)
-;(def server (-main))
+(.stop server)
+(def server (-main))

@@ -34,10 +34,8 @@
        views/about-page)
   (GET "/contact" []
        views/contact-page)
-  (GET "/info" []
-       views/info-page)
   (route/resources "/")
-  (ANY "*" ]
+  (ANY "*" []
        (route/not-found (slurp (io/resource "404.html")))))
 
 (defn wrap-error-page [handler]

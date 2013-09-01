@@ -9,7 +9,7 @@
                  [ring/ring-devel "1.2.0"]
                  [ring-basic-authentication "1.0.2"]
                  [environ "0.4.0"]
-                 [org.clojars.samhalicke/hiccup-bootstrap "0.2.0"]
+                 [org.clojars.samhalicke/hiccup-bootstrap "0.2.5"]
                  [com.cemerick/drawbridge "0.0.6"]
                  [hiccup "1.0.4"]
                  [clj-time "0.6.0"]

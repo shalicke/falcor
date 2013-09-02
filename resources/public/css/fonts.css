@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'latin_modern_roman10_bold';
+    src: url('lmroman10-bold-webfont.eot');
+    src: url('lmroman10-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmroman10-bold-webfont.woff') format('woff'),
+         url('lmroman10-bold-webfont.ttf') format('truetype'),
+         url('lmroman10-bold-webfont.svg#latin_modern_roman10_bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latin_modern_roman10BdIt';
+    src: url('lmroman10-bolditalic-webfont.eot');
+    src: url('lmroman10-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmroman10-bolditalic-webfont.woff') format('woff'),
+         url('lmroman10-bolditalic-webfont.ttf') format('truetype'),
+         url('lmroman10-bolditalic-webfont.svg#latin_modern_roman10BdIt') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latin_modern_roman10_italic';
+    src: url('lmroman10-italic-webfont.eot');
+    src: url('lmroman10-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmroman10-italic-webfont.woff') format('woff'),
+         url('lmroman10-italic-webfont.ttf') format('truetype'),
+         url('lmroman10-italic-webfont.svg#latin_modern_roman10_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Latin Modern Roman';
+    src: url('../fonts/lmroman10-regular-webfont.eot');
+    src: url('../fonts/lmroman10-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lmroman10-regular-webfont.woff') format('woff'),
+         url('../fonts/lmroman10-regular-webfont.ttf') format('truetype'),
+         url('../fonts/lmroman10-regular-webfont.svg#latin_modern_roman10_regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Latin Modern Roman Caps Bold';
+    src: url('../fonts/lmromancaps10-oblique-webfont.eot');
+    src: url('../fonts/lmromancaps10-oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lmromancaps10-oblique-webfont.woff') format('woff'),
+         url('../fonts/lmromancaps10-oblique-webfont.ttf') format('truetype'),
+         url('../fonts/lmromancaps10-oblique-webfont.svg#latin_modern_roman_caps10Ob') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Latin Modern Roman Caps';
+    src: url('../fonts/lmromancaps10-regular-webfont.eot');
+    src: url('../fonts/lmromancaps10-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lmromancaps10-regular-webfont.woff') format('woff'),
+         url('../fonts/lmromancaps10-regular-webfont.ttf') format('truetype'),
+         url('../fonts/lmromancaps10-regular-webfont.svg#latin_modern_roman_caps10Rg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latin_modern_roman_demi10Ob';
+    src: url('lmromandemi10-oblique-webfont.eot');
+    src: url('lmromandemi10-oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmromandemi10-oblique-webfont.woff') format('woff'),
+         url('lmromandemi10-oblique-webfont.ttf') format('truetype'),
+         url('lmromandemi10-oblique-webfont.svg#latin_modern_roman_demi10Ob') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latin_modern_roman_demi10Rg';
+    src: url('lmromandemi10-regular-webfont.eot');
+    src: url('lmromandemi10-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmromandemi10-regular-webfont.woff') format('woff'),
+         url('lmromandemi10-regular-webfont.ttf') format('truetype'),
+         url('lmromandemi10-regular-webfont.svg#latin_modern_roman_demi10Rg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latin_modern_roman_dunhil10Ob';
+    src: url('lmromandunh10-oblique-webfont.eot');
+    src: url('lmromandunh10-oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmromandunh10-oblique-webfont.woff') format('woff'),
+         url('lmromandunh10-oblique-webfont.ttf') format('truetype'),
+         url('lmromandunh10-oblique-webfont.svg#latin_modern_roman_dunhil10Ob') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latin_modern_roman_dunhil10Rg';
+    src: url('lmromandunh10-regular-webfont.eot');
+    src: url('lmromandunh10-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmromandunh10-regular-webfont.woff') format('woff'),
+         url('lmromandunh10-regular-webfont.ttf') format('truetype'),
+         url('lmromandunh10-regular-webfont.svg#latin_modern_roman_dunhil10Rg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latin_modern_roman_slante10Bd';
+    src: url('lmromanslant10-bold-webfont.eot');
+    src: url('lmromanslant10-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmromanslant10-bold-webfont.woff') format('woff'),
+         url('lmromanslant10-bold-webfont.ttf') format('truetype'),
+         url('lmromanslant10-bold-webfont.svg#latin_modern_roman_slante10Bd') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latin_modern_roman_slante10Rg';
+    src: url('lmromanslant10-regular-webfont.eot');
+    src: url('lmromanslant10-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lmromanslant10-regular-webfont.woff') format('woff'),
+         url('lmromanslant10-regular-webfont.ttf') format('truetype'),
+         url('lmromanslant10-regular-webfont.svg#latin_modern_roman_slante10Rg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

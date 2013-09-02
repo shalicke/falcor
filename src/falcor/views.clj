@@ -100,6 +100,7 @@
      [:title {} "neuros.es - the home of Sam Halicke on the web"]
      (include-js "//code.jquery.com/jquery.min.js")
      (include-bootstrap)
+     (include-css "/css/fonts.css")
      (use-bootswatch-theme "functor")
      (include-css "/css/jumbotron-narrow.css")
      (include-css "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css")

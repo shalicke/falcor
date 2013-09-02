@@ -27,11 +27,12 @@
 
 (def contact-content
   [[:div.container
-    [:h2 "Contacting Me"]
+    [:h3 "Contacting Me"]
     [:p "Feel free to use any medium you choose, although Twitter and email are probably best."]
     [:ul.list-unstyled
-     [:li (icon "envelope") (mail-to "sam@halicke.com")]
-     [:li (icon "twitter")  [:a {:href "https://twitter.com/samhalicke"} "Or maybe you're a twitter person."]]
+     [:li (fa-icon "envelope") " " (mail-to "sam@halicke.com" "Shoot me an email.")]
+     [:li (fa-icon "twitter")  " " (link-to "https://twitter.com/samhalicke" "Or maybe you're a twitter person.")]
+     [:li (fa-icon "linkedin") " " (link-to "https://linkedin.com/in/samhalicke" "Connect on LinkedIn, perhaps?")]
      ]
     ]])
 
@@ -74,7 +75,7 @@
 
 (def disqus-content
   [
-   [:div#disqus-thread]
+   [:div {:id "disqus-thread"}]
    (javascript-tag
     "var disqus_shortname = 'neurosesblog';
     (function() {
@@ -100,7 +101,8 @@
      (include-js "//code.jquery.com/jquery.min.js")
      (include-bootstrap)
      (use-bootswatch-theme "functor")
-     [:link {:href "/css/jumbotron-narrow.css", :rel "stylesheet"}]
+     (include-css "/css/jumbotron-narrow.css")
+     (include-css "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css")
      "<!--[if lt IE 9]><script src=\"/js/html5shiv.js\"></script><script src=\"/js/respond.min.js\"></script><![endif]-->"]
     [:body
      [:div.container

@@ -88,16 +88,15 @@
      [:ul.list-inline
       [:li
        [:a {:href "http://hipsterops.tumblr.com/"} "hipsterops, a tumblr"]]]
-     [:h4 "Community & Social"]
-     [:p "Meetups I'm active in, hackerspaces, etc."]
+     [:h4 "Socialize"]
+     [:p "Online profiles, meetups I'm active in, etc."]
      [:ul.list-inline
       [:li [:a {:href "https://linkedin.com/in/samhalicke"} "LinkedIn"]]
       "|"
-      [:li [:a {:href "/resume"} "Resume"]]
-      "|"
       [:li [:a {:href "http://meetup.com/members/60698782"} "Meetup"]]
       "|"
-      [:li [:a {:href "http://buildcibola.com/"} "Cibola"]]]]]])
+      [:li [:a {:href "http://quora.com/Sam-Halicke"} "Quora"]]
+      ]]]])
 
 (def disqus
   [

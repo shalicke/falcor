@@ -30,6 +30,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
 }
 
+.jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h4, .jumbotron h5, .jumbotron h6 {
+    font-weight: normal;
+}
+
 .navbar-brand {
     font-weight: bold;
 }

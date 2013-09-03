@@ -26,15 +26,16 @@
       (basic/wrap-basic-authentication authenticated?)))
 
 (defroutes app
+  (route/resources "/")
+
   (ANY "/repl" {:as req}
                 (drawbridge req))
-  (GET "/" []
-       views/index-page)
-  (GET "/about" []
+  (ANY "/" {:as req}
+       (views/index-page req))
+  (ANY "/about" []
        views/about-page)
-  (GET "/contact" []
+  (ANY "/contact" []
        views/contact-page)
-  (route/resources "/")
   (ANY "*" []
        (route/not-found (slurp (io/resource "404.html")))))
 
@@ -59,5 +60,6 @@
                      {:port port :join? false})))
 
 ;; For interactive development:
-;(.stop server)
-;(def server (-main))
+(comment
+  (.stop server)
+  (def server (-main)))

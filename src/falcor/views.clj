@@ -66,3 +66,7 @@
 (defn contact-page [request]
   (template-base
    {:main content/contact}))
+
+(defn blog-post [& {:keys [slug timestamp]}]
+  (blog/retrieve-content slug)
+  (template-base))

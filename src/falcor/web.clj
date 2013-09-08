@@ -36,6 +36,10 @@
        views/about-page)
   (ANY "/contact" []
        views/contact-page)
+  (ANY "/blog/:slug" []
+       (views/blog-post :slug slug))
+  (ANY "/blog/:id/:timestamp" []
+       (views/blog-post :slug slug :timestamp timestamp))
   (ANY "*" []
        (route/not-found (slurp (io/resource "404.html")))))
 
@@ -62,4 +66,5 @@
 ;; For interactive development:
 (comment
   (.stop server)
-  (def server (-main)))
+  (def server (-main))
+  )

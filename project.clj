@@ -1,8 +1,8 @@
 (defproject falcor "0.1.0"
   :description "FIXME: write description"
-  :url "http://falcor.herokuapp.com"
-  :license {:name "FIXME: choose"
-            :url "http://example.com/FIXME"}
+  :url "http://sam.halicke.com"
+  :license {:name "CC Attribution Share Alike By SA"
+            :url "http://creativecommons.org"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojars.samhalicke/compojure "1.2.1-SNAPSHOT"]
                  [ring/ring-jetty-adapter "1.2.0"]

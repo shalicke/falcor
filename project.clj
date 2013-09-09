@@ -14,7 +14,8 @@
                  [hiccup "1.0.4"]
                  [clj-time "0.6.0"]
                  [com.novemberain/monger "1.6.0"]
-                 ]
+                 [markdown-clj "0.9.31"]
+                 [com.taoensso/timbre "2.6.1"]]
   :min-lein-version "2.0.0"
   :plugins [[environ/environ.lein "0.2.1"]]
   :hooks [environ.leiningen.hooks]

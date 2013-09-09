@@ -6,22 +6,11 @@
             [monger.collection :as mc]))
 
 (def db-uri (env :mongolab-uri))
-
 (def db-name (peek (str/split db-uri #"/")))
-
 (def default-collection "posts")
 
-(defn initialize
+(defn initialize!
   "Initializes the database connection."
   []
   (mg/connect-via-uri! db-uri)
   (mg/set-db! (mg/get-db db-name)))
-
-(defn insert
-  [str & coll]
-  (let [coll (or coll
-                 default-collection)
-        body-map {:body str}]
-    (mc/insert-and-return coll body-map)))
-
-(initialize)

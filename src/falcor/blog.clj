@@ -52,7 +52,3 @@
   (doall
    (map
     #(-> (str/join "-" (str/split % #"\s")) (str/lower-case)) slug-name)))
-
-(slugify ["TEST TITLE"])
-
-(macroexpand-1 '(m-try (some-func test)))

@@ -15,8 +15,11 @@
                  [clj-time "0.6.0"]
                  [com.novemberain/monger "1.6.0"]
                  [markdown-clj "0.9.31"]
+                 [org.immutant/immutant-web "1.0.1"]
                  [com.taoensso/timbre "2.6.1"]]
   :min-lein-version "2.0.0"
+  :immutant {:context-path "/"
+             :nrepl-port 10000}
   :plugins [[environ/environ.lein "0.2.1"]]
   :hooks [environ.leiningen.hooks]
   :profiles {:production {:env {:production true}}})

@@ -55,7 +55,6 @@
   (let [port (Integer. (or port (env :port) 5000))
         ;; TODO: heroku config:add SESSION_SECRET=$RANDOM_16_CHARS
         store (cookie/cookie-store {:key (env :session-secret)})]
-    (db/initialize!)
     (jetty/run-jetty (-> #'app
                          mw/wrap-bootstrap-resources
                          ((if (env :production)
@@ -67,4 +66,5 @@
 ;; For interactive development:
 (comment
   (.stop server)
-  (def server (-main)))
+  (def server (-main))
+  )

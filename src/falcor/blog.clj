@@ -4,15 +4,29 @@
   (:require [markdown.core :as md]
             [clojure.string :as str]
             [monger.collection :as mc]
+            [falcor.db :as db :only [initialize!]]
             [monger.result :only [ok?]]
             [monger.query :as q]))
 
-(defmacro m-try [mongo-function]
-  `(if-let [result# (monger.result/ok? ~mongo-function)]
-     result#
-     (throw (new Exception) (format "Mongo operation failed: %s with %s"
-                               ~mongo-function
-                               result#))))
+(defn connected? []
+  (if (bound? (var monger.core/*mongodb-connection*))
+    true
+    (do (try
+          (db/initialize!)
+          (catch Exception e (str "Exception connecting to MongoDB: " (.getMessage e)))
+          (finally true)))))
+
+
+(comment
+  (defmacro m-try [mongo-function & _]
+    (when (connected?)
+      `(let [result# ~mongo-function]
+         (if-not (true? (monger.result/ok? (first result#)))
+           result#
+           (throw (new Exception) (format "Mongo operation failed: %s with %s"
+                                          ~mongo-function
+                                          result#)))))))
+
 (defn slugify
   [slug-name]
   (doall
@@ -21,16 +35,18 @@
 
 (defn retrieve-content
   [& {:keys [slug timestamp]}]
-  (->
-   (q/with-collection "posts"
-     (q/find {:slug slug})
-     (q/fields [:timestamp :content ])
-     (q/sort (array-map :timestamp -1))
-     (q/limit 1))
-   (first)
-   :content
-   (md/md-to-html-string)
-   ))
+  (if (connected?)
+    (->
+     (q/with-collection "posts"
+       (q/find {:slug slug})
+       (q/fields [:timestamp :content ])
+       (q/sort (array-map :timestamp -1))
+       (q/limit 1))
+     (first)
+     :content
+     (md/md-to-html-string)
+     )
+    (retrieve-content slug timestamp)))
 
 (defn- post-content
   "for repl use"
@@ -46,7 +62,7 @@
              :timestamp id
              :tags tags
              :categories categories}]
-    (m-try (mc/insert "posts" doc))))
+    (mc/insert "posts" doc)))
 
 (defn- add-tag [])
 (defn- add-category [])

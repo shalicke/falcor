@@ -2,9 +2,10 @@
   "The databasey things"
   (:require [monger.core :as mg]
             [clojure.string :as str]
+            [environ.core :refer [env]]
             [monger.collection :as mc]))
 
-(def db-uri (get (System/getenv "MONGOLAB_URI" "mongodb://localhost/testdb")))
+(def db-uri (env :mongolab-uri))
 
 (def db-name (peek (str/split db-uri #"/")))
 

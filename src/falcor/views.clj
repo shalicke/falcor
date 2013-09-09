@@ -21,6 +21,7 @@
      [:link {:rel "shortcut icon", :href "/ico/favicon.png"}]
      [:title {} "neuros.es - the home of Sam Halicke on the web"]
      (include-js "//code.jquery.com/jquery.min.js")
+     (include-js "/js/ga.js")
      (include-bootstrap)
      (include-css "/css/fonts.css")
      (use-bootswatch-theme "functor")

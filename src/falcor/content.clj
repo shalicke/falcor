@@ -6,6 +6,8 @@
             [hiccup.element :refer :all]
             ))
 
+(def blog-index [])
+
 (def about
   [[:div.container.marketing
     [:h3 "About Me"]
@@ -70,7 +72,7 @@
    [:div.row.marketing
     [:div.col-lg-6
      [:h4 "Blog"]
-     [:em "coming soon, folks"]
+     [:em "coming soon, folks -- update, almost there!"]
      [:p "Technical blog about a wide variety of topics: web operations, configuration management, web application architectures, Clojure, functional programming, and " [:abbr.initialism {:title "Amazon Web Services"} "AWS"]]
      [:h4 "Resources & Code"]
      [:p

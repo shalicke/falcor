@@ -48,7 +48,7 @@
           [:li.active [:a {:href "/"} "home"]]
           [:li [:a {:href "/about"} "about"]]
           [:li [:a {:href "/contact"} "contact"]]
-          [:li [:a.text-muted {:href "/#"} [:strike "blog"]]]]]
+          [:li [:a {:href "/blog/"} [:strike "blog"]]]]]
         ]
        (for [frag (:main content-map)] frag)
        (for [frag (:disqus content-map)] frag)
@@ -68,6 +68,10 @@
 (defn contact-page [request]
   (template-base
    {:main content/contact}))
+
+(defn blog-index [_]
+  (template-base
+   {:main content/blog-index}))
 
 (defn blog-post [& {:keys [slug timestamp]}]
   (template-base

@@ -57,19 +57,19 @@
       [:blockquote.text-muted "Il semble que la perfection soit atteinte non quand il n'y a plus rien à ajouter, mais quand il n'y a plus rien à retrancher."]
       [:p.text-muted.pull-right "- Antoine de Saint Exupery"]]]))
 
-(defn index-page [request]
+(defn index-page [_]
     (template-base
      {:main content/index}))
 
-(defn about-page [request]
+(defn about-page [_]
   (template-base
    {:main content/about}))
 
-(defn contact-page [request]
+(defn contact-page [_]
   (template-base
    {:main content/contact}))
 
-(defn blog-index [_]
+(defn blog-index-page [_]
   (template-base
    {:main content/blog-index}))
 

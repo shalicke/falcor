@@ -1,8 +1,0 @@
-(require 'monger.core as mc)
-(require 'monger.core :as mc)
-(require 'monger.core :as 'mc)
-(require 'clojure.string :as 'str)
-quit
-(require '[monger.core :as mc])
-(require '[clojure.string :as str])
-exit

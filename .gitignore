@@ -9,4 +9,5 @@ pom.xml
 /target
 **/*.#*
 /.lein*
+.lein-repl-history
 /.nrepl-port

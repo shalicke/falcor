@@ -13,6 +13,11 @@
      (throw (new Exception) (format "Mongo operation failed: %s with %s"
                                ~mongo-function
                                result#))))
+(defn slugify
+  [slug-name]
+  (doall
+   (map
+    #(-> (str/join "-" (str/split % #"\s")) (str/lower-case)) slug-name)))
 
 (defn retrieve-content
   [& {:keys [slug timestamp]}]
@@ -45,10 +50,3 @@
 
 (defn- add-tag [])
 (defn- add-category [])
-
-(defn slugify
-  "doc-string"
-  [slug-name]
-  (doall
-   (map
-    #(-> (str/join "-" (str/split % #"\s")) (str/lower-case)) slug-name)))

@@ -19,9 +19,14 @@
      [:meta {:name "description", :content "neuros.es is the home of Sam Halicke on the web. Thoughts on functional programming, web operations, projects, social and contact info."}]
      [:meta {:name "author", :content "Sam Halicke"}]
      [:link {:rel "shortcut icon", :href "/ico/favicon.png"}]
+     [:script {:type "text/javascript"}
+      "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-41196500-1', 'neuros.es');
+ga('send', 'pageview');"
+      ]
      [:title {} "neuros.es - the home of Sam Halicke on the web"]
      (include-js "//code.jquery.com/jquery.min.js")
-     (include-js "/js/ga.js")
      (include-bootstrap)
      (include-css "/css/fonts.css")
      (use-bootswatch-theme "functor")

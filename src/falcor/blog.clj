@@ -16,18 +16,6 @@
           (catch Exception e (str "Exception connecting to MongoDB: " (.getMessage e)))
           (finally true)))))
 
-(defn blog-index []
-  (if (connected?)
-    (let [recent-posts
-          (q/with-collection "posts"
-            (q/find {})
-            (q/fields [:_id :slug])
-            (q/sort (array-map :_id -1))
-            (q/limit 10))]
-      (for [post recent-posts]
-        [:li [:a {:href (str "/blog/posts/" (first (:slug post)) "/")} (first (titlefy (:slug post)))]]
-        ))))
-
 (defn titlefy
   [title-name]
   (doall
@@ -41,6 +29,18 @@
   (doall
    (map
     #(-> (str/join "-" (str/split % #"\s")) (str/lower-case)) slug-name)))
+
+(defn blog-index []
+  (if (connected?)
+    (let [recent-posts
+          (q/with-collection "posts"
+            (q/find {})
+            (q/fields [:_id :slug])
+            (q/sort (array-map :_id -1))
+            (q/limit 10))]
+      (for [post recent-posts]
+        [:li [:a {:href (str "/blog/posts/" (first (:slug post)) "/")} (first (titlefy (:slug post)))]]
+        ))))
 
 (defn retrieve-content
   [& {:keys [slug timestamp]}]

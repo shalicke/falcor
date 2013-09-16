@@ -20,10 +20,13 @@
      [:meta {:name "author", :content "Sam Halicke"}]
      [:link {:rel "shortcut icon", :href "/ico/favicon.png"}]
      [:script {:type "text/javascript"}
-      "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-41196500-1', 'neuros.es');
-ga('send', 'pageview');"
+  ga('create', 'UA-41196500-1', 'neuros.es');
+  ga('send', 'pageview');"
       ]
      [:title {} "neuros.es - the home of Sam Halicke on the web"]
      (include-js "//code.jquery.com/jquery.min.js")
@@ -47,7 +50,7 @@ ga('send', 'pageview');"
           [:span.icon-bar]
           [:span.icon-bar]
           ]
-         [:a.navbar-brand {:href "/#"} "neuroses"]
+         [:span.text-muted.navbar-brand "neuros.es"]
          ]
         [:div.collapse.navbar-collapse.navbar-home-collapse
          [:ul.nav.navbar-nav
@@ -56,6 +59,7 @@ ga('send', 'pageview');"
           [:li [:a {:href "/contact"} "contact"]]
           [:li [:a {:href "/blog/"} [:strike "blog"]]]]]
         ]
+       (for [frag (:pre content-map)] frag)
        (for [frag (:main content-map)] frag)
        (for [frag (:disqus content-map)] frag)
        ]]
@@ -64,8 +68,8 @@ ga('send', 'pageview');"
       [:p.text-muted.pull-right "- Antoine de Saint Exupery"]]]))
 
 (defn index-page [_]
-    (template-base
-     {:main content/index}))
+  (template-base
+   {:main content/index}))
 
 (defn about-page [_]
   (template-base
@@ -75,10 +79,16 @@ ga('send', 'pageview');"
   (template-base
    {:main content/contact}))
 
-(defn blog-index-page [_]
+(defn blog-index-page []
   (template-base
-   {:main content/blog-index}))
+   {:pre content/blog-pre
+    :main (blog/blog-index)}))
 
 (defn blog-post [& {:keys [slug timestamp]}]
   (template-base
-   {:main (blog/retrieve-content :slug slug)}))
+   {:main (blog/retrieve-content :slug slug)
+    :disqus content/disqus}))
+
+(defn firehose-page []
+  (template-base
+   {:main (blog/firehose)}))

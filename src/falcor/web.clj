@@ -37,10 +37,14 @@
        views/about-page)
   (ANY "/contact" []
        views/contact-page)
-  (ANY "/blog/:slug" [slug]
+  (ANY "/blog/" []
+       (views/blog-index-page))
+  (ANY "/blog/posts/:slug/" [slug]
        (views/blog-post :slug slug))
-  (ANY "/blog/:id/:timestamp" [slug timestamp]
+  (ANY "/blog/posts/:slug/:timestamp/" [slug timestamp]
        (views/blog-post :slug slug :timestamp timestamp))
+  (ANY "/firehose" []
+       (views/firehose-page))
   (ANY "*" []
        (route/not-found (slurp (io/resource "404.html")))))
 
@@ -52,18 +56,5 @@
             :headers {"Content-Type" "text/html"}
             :body (slurp (io/resource "500.html"))}))))
 
-(defn -main [& [port]]
-  (let [port (Integer. (or port (env :port) 5000))
-        store (cookie/cookie-store {:key (env :session-secret)})]
-    (jetty/run-jetty (-> #'app
-                         ((if (env :production)
-                            wrap-error-page
-                            trace/wrap-stacktrace))
-                         (site {:session {:store store}}))
-                     {:port port :join? false})))
-
-;; For interactive development:
-(comment
-  (.stop server)
-  (def server (-main))
-  )
+(defn -main [_]
+  "run with immutant")

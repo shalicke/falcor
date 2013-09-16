@@ -16,16 +16,25 @@
           (catch Exception e (str "Exception connecting to MongoDB: " (.getMessage e)))
           (finally true)))))
 
+(defn blog-index []
+  (if (connected?)
+    (let [recent-posts
+          (q/with-collection "posts"
+            (q/find {})
+            (q/fields [:_id :slug])
+            (q/sort (array-map :_id -1))
+            (q/limit 10))]
+      (for [post recent-posts]
+        [:li [:a {:href (str "/blog/posts/" (first (:slug post)) "/")} (first (titlefy (:slug post)))]]
+        ))))
 
-(comment
-  (defmacro m-try [mongo-function & _]
-    (when (connected?)
-      `(let [result# ~mongo-function]
-         (if-not (true? (monger.result/ok? (first result#)))
-           result#
-           (throw (new Exception) (format "Mongo operation failed: %s with %s"
-                                          ~mongo-function
-                                          result#)))))))
+(defn titlefy
+  [title-name]
+  (doall
+    (map
+      #(-> (str/join " " (str/split % #"-"))
+           (str/capitalize))
+      title-name)))
 
 (defn slugify
   [slug-name]
@@ -47,6 +56,16 @@
      (md/md-to-html-string)
      )
     (retrieve-content slug timestamp)))
+
+
+(defn twitter
+  []
+  ["<a class='twitter-timeline' href='https://twitter.com/samhalicke' data-widget-id='377303783291633664'>Tweets by @samhalicke</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>"])
+
+
+(defn firehose []
+  (twitter))
 
 (defn- post-content
   "for repl use"

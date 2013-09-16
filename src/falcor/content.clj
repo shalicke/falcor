@@ -6,7 +6,6 @@
             [hiccup.element :refer :all]
             ))
 
-(def blog-index [])
 
 (def about
   [[:div.container.marketing
@@ -112,3 +111,8 @@
     })();")
    [:noscript "Please enable JavaScript to view the comments powered by Disqus."]
    ])
+
+(def blog-pre
+  [
+   [:div#pre
+    [:p.lead "Most recent entries, sorted by date."]]])

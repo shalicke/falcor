@@ -59,10 +59,11 @@
           [:li [:a {:href "/contact"} "contact"]]
           [:li [:a {:href "/blog/"} [:strike "blog"]]]]]
         ]
+       [:div#content
        (for [frag (:pre content-map)] frag)
        (for [frag (:main content-map)] frag)
-       (for [frag (:disqus content-map)] frag)
-       ]]
+       (for [frag (:post content-map)] frag)
+       (for [frag (:disqus content-map)] frag)]]]
      [:div#footer.container
       [:blockquote.text-muted "Il semble que la perfection soit atteinte non quand il n'y a plus rien à ajouter, mais quand il n'y a plus rien à retrancher."]
       [:p.text-muted.pull-right "- Antoine de Saint Exupery"]]]))

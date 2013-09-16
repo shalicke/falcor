@@ -115,4 +115,6 @@
 (def blog-pre
   [
    [:div#pre
-    [:p.lead "Most recent entries, sorted by date."]]])
+    [:p.lead "Most recent entries, sorted by date."]
+    [:p.text-muted "Formatting may be slightly amiss as I refine the markdown->html->template transition."]]])
+

@@ -16,6 +16,7 @@
           (catch Exception e (str "Exception connecting to MongoDB: " (.getMessage e)))
           (finally true)))))
 
+
 (defn titlefy
   [title-name]
   (doall
@@ -38,9 +39,9 @@
             (q/fields [:_id :slug])
             (q/sort (array-map :_id -1))
             (q/limit 10))]
-      (for [post recent-posts]
-        [:li [:a {:href (str "/blog/posts/" (first (:slug post)) "/")} (first (titlefy (:slug post)))]]
-        ))))
+      [[:ul.post-list
+        (for [post recent-posts]
+          [:li [:a {:href (str "/blog/posts/" (first (:slug post)) "/")} (first (titlefy (:slug post)))]])]])))
 
 (defn retrieve-content
   [& {:keys [slug timestamp]}]
@@ -48,13 +49,11 @@
     (->
      (q/with-collection "posts"
        (q/find {:slug slug})
-       (q/fields [:timestamp :content ])
-       (q/sort (array-map :timestamp -1))
+       (q/fields [:_id :content ])
+       (q/sort (array-map :_id -1))
        (q/limit 1))
      (first)
-     :content
-     (md/md-to-html-string)
-     )
+     :content)
     (retrieve-content slug timestamp)))
 
 
@@ -78,10 +77,14 @@
         doc {:slug slug
              :content content
              :_id id
-             :timestamp id
              :tags tags
              :categories categories}]
     (mc/insert "posts" doc)))
+
+
+(post-content "the importance of consistency" "/Users/shalicke/Documents/the_importance_of_consistency.html")
+
+
 
 (defn- add-tag [])
 (defn- add-category [])

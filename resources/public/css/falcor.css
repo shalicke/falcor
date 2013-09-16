@@ -30,6 +30,16 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
 }
 
+h1, h2, h3 {
+  padding-bottom: 0.5em;
+  padding-top: 0.25em;
+}
+
+h4,h5,h6 {
+  padding-bottom: .25em;
+  padding-bottom: .25em;
+}
+
 .jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h4, .jumbotron h5, .jumbotron h6 {
     font-weight: normal;
 }
@@ -40,6 +50,10 @@ h1, h2, h3, h4, h5, h6 {
 
 html, body {
     height: 100%
+}
+
+#main {
+  padding-bottom: 1.5em;
 }
 
 #wrap {
@@ -55,9 +69,48 @@ html, body {
 /* Set the fixed height of the footer here */
 #footer {
   height: 100px;
+  font-size: .8em;
   // background-color: #f5f5f5;
 }
 
 #footer p {
   padding-bottom: 10px;
+}
+
+#content ul {
+  margin-left: 0em;
+  padding-left: 1.5em;
+  list-style-position: inside;
+}
+
+#content ul > li { /* remove '>' for IE6 support */
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+#content ul {
+  list-style: none;
+}
+
+#content ul > li:before {
+  content: "✻";
+  text-indent: 0;
+  display: inline-block;
+  width: 0;
+  position: relative;
+  left: -1.5em;
+}
+
+#content ul > li li:before {
+  content: "✳";
+  font-size: 0.8em;
+}
+
+#main ul > li li li:before {
+  content: "－";
+  font-size: 0.6em;
+}
+
+.hand-tip:before {
+  content: "☞"
 }

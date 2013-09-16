@@ -57,7 +57,7 @@
           [:li.active [:a {:href "/"} "home"]]
           [:li [:a {:href "/about"} "about"]]
           [:li [:a {:href "/contact"} "contact"]]
-          [:li [:a {:href "/blog/"} [:strike "blog"]]]]]
+          [:li [:a {:href "/blog/"} "blog"]]]]
         ]
        [:div#content
        (for [frag (:pre content-map)] frag)

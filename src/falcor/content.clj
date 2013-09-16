@@ -71,13 +71,14 @@
    [:div.row.marketing
     [:div.col-lg-6
      [:h4 "Blog"]
-     [:em "coming soon, folks -- update, almost there!"]
+     [:em "Some posts up. Busy migrating and reformatting old content!"]
      [:p "Technical blog about a wide variety of topics: web operations, configuration management, web application architectures, Clojure, functional programming, and " [:abbr.initialism {:title "Amazon Web Services"} "AWS"]]
      [:h4 "Resources & Code"]
      [:p
       "My open source stuff, book reviews, documentation and community resources for FP/Clojure, current projects, and everything else."]
      [:ul.list-inline
-      [:li [:a {:href "https://github.com/shalicke"} "Github"]]]
+      [:li [:a {:href "https://github.com/shalicke"} "Github"]]
+      [:li [:a {:href "http://www.quora.com/Clojure/What-are-the-best-resources-for-learning-Clojure"} "Clojure Resources" [:span.text-muted "(Quora)"]]]]
      ]
     [:div.col-lg-6
      [:h4 "Firehose"]
@@ -101,16 +102,8 @@
 
 (def disqus
   [
-   [:div {:id "disqus-thread"}]
-   (javascript-tag
-    "var disqus_shortname = 'neurosesblog';
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();")
-   [:noscript "Please enable JavaScript to view the comments powered by Disqus."]
-   ])
+   [:div {:id "disqus_thread"}]
+   [:script {:type "text/javascript" :async "true" :src "//neurosesblog.disqus.com/embed.js"}]])
 
 (def blog-pre
   [

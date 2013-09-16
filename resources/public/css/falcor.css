@@ -85,7 +85,7 @@ html, body {
 
 #content ul > li { /* remove '>' for IE6 support */
   padding-left: 1em;
-  text-indent: -1em;
+  text-indent: 0em;
 }
 
 #content ul {

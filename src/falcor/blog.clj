@@ -82,7 +82,7 @@
     (mc/insert "posts" doc)))
 
 
-(post-content "the importance of consistency" "/Users/shalicke/Documents/the_importance_of_consistency.html")
+;(post-content "the importance of consistency" "/Users/shalicke/Documents/the_importance_of_consistency.html")
 
 
 

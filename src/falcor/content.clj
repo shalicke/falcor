@@ -71,25 +71,22 @@
    [:div.row.marketing
     [:div.col-lg-6
      [:h4 "Blog"]
-     [:em "Some posts up. Busy migrating and reformatting old content!"]
      [:p "Technical blog about a wide variety of topics: web operations, configuration management, web application architectures, Clojure, functional programming, and " [:abbr.initialism {:title "Amazon Web Services"} "AWS"]]
+     [:em "Some posts up. Busy migrating and reformatting old content!"]
      [:h4 "Resources & Code"]
      [:p
-      "My open source stuff, book reviews, documentation and community resources for FP/Clojure, current projects, and everything else."]
+      "My open source stuff, book reviews, documentation and community resources for FP/Clojure, current projects, and everything else. Adding content and links as I work through rewriting my blog."]
      [:ul.list-inline
       [:li [:a {:href "https://github.com/shalicke"} "Github"]]
-      [:li [:a {:href "http://www.quora.com/Clojure/What-are-the-best-resources-for-learning-Clojure"} "Clojure Resources" [:span.text-muted "(Quora)"]]]]
+      "|"
+      [:li [:a {:href "http://qr.ae/I0JAx"} "Clojure Resources " [:span.text-muted "(Quora)"]]]]
      ]
     [:div.col-lg-6
      [:h4 "Firehose"]
-     [:em "coming soon, folks"]
      [:p "A stream of updates from various sources."]
-     [:a.text-muted {:href "/#"} [:strike "Drink"]]
+     [:a.text-muted {:href "/#"} [:strike "Drink "] [:em " ...coming soon"]]
      [:h4 "Distractions"]
-     [:p "Other stuff I enjoy: Photography, dogs, silly gifs, language, literature, thought work, miniature things, and random life experiences."]
-     [:ul.list-inline
-      [:li
-       [:a {:href "http://hipsterops.tumblr.com/"} "hipsterops, a tumblr"]]]
+     [:p "Other stuff I enjoy: Photography, rescue animals, silly gifs, language, literature, learning, hammock time, miniature things, and random life experiences."]
      [:h4 "Socialize"]
      [:p "Online profiles, meetups I'm active in, etc."]
      [:ul.list-inline
@@ -98,12 +95,14 @@
       [:li [:a {:href "http://meetup.com/members/60698782"} "Meetup"]]
       "|"
       [:li [:a {:href "http://quora.com/Sam-Halicke"} "Quora"]]
+      "|"
+      [:li [:a {:href "http://freenode.org"} "IRC: s4muel on freenode"]]
       ]]]])
 
 (def disqus
   [
-   [:div {:id "disqus_thread"}]
-   [:script {:type "text/javascript" :async "true" :src "//neurosesblog.disqus.com/embed.js"}]])
+   [:div#disqus_thread.comments [:a {:name "#disqus_thread"}]
+   [:script {:type "text/javascript" :async "true" :src "//neurosesblog.disqus.com/embed.js"}]]])
 
 (def blog-pre
   [

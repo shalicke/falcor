@@ -40,7 +40,7 @@
     [:body
      [:div#wrap
       [:div.container
-       [:nav.navbar.navbar-defaultnavbar-static-top
+       [:nav.navbar.navbar-default.navbar-static-top
         {:role "navigation"}
         [:div.navbar-header
          [:button.navbar-toggle

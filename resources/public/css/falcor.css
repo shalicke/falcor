@@ -40,6 +40,10 @@ h4,h5,h6 {
   padding-bottom: .25em;
 }
 
+.jumbotron {
+  background-color: #fafafa;
+}
+
 .jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h4, .jumbotron h5, .jumbotron h6 {
     font-weight: normal;
 }
@@ -92,6 +96,20 @@ html, body {
   list-style: none;
 }
 
+#content .marketing ul > li {
+  padding-left: 5px;
+}
+
+#content .marketing ul > li:before {
+  content: "";
+  text-indent: inherit;
+  display: inherit;
+  width: inherit;
+  position: inherit;
+  left: inherit;
+}
+
+
 #content ul > li:before {
   content: "✻";
   text-indent: 0;
@@ -106,7 +124,7 @@ html, body {
   font-size: 0.8em;
 }
 
-#main ul > li li li:before {
+#content ul > li li li:before {
   content: "－";
   font-size: 0.6em;
 }

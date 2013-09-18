@@ -26,8 +26,7 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-41196500-1', 'neuros.es');
-  ga('send', 'pageview');"
-      ]
+  ga('send', 'pageview');" ]
      [:title {} "neuros.es - the home of Sam Halicke on the web"]
      (include-js "//code.jquery.com/jquery.min.js")
      (include-bootstrap)
@@ -35,7 +34,10 @@
      (use-bootswatch-theme "functor")
      (include-css "/css/jumbotron-narrow.css")
      (include-css "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css")
+     (include-css "/css/codemirror.css")
      (include-css "/css/falcor.css")
+     (include-js "/js/codemirror.js")
+     (include-js "/js/falcor.js")
      "<!--[if lt IE 9]><script src=\"/js/html5shiv.js\"></script><script src=\"/js/respond.min.js\"></script><![endif]-->"]
     [:body
      [:div#wrap

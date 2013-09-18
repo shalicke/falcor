@@ -4,6 +4,7 @@
   (:require [markdown.core :as md]
             [clojure.string :as str]
             [monger.collection :as mc]
+            [monger.operators :refer [$gt $lt]]
             [falcor.db :as db :only [initialize!]]
             [monger.result :only [ok?]]
             [monger.query :as q]))
@@ -15,7 +16,6 @@
           (db/initialize!)
           (catch Exception e (str "Exception connecting to MongoDB: " (.getMessage e)))
           (finally true)))))
-
 
 (defn titlefy
   [title-name]
@@ -35,7 +35,7 @@
   (if (connected?)
     (let [recent-posts
           (q/with-collection "posts"
-            (q/find {})
+            (q/find {:published {$gt 0}})
             (q/fields [:_id :slug])
             (q/sort (array-map :_id -1))
             (q/limit 10))]
@@ -78,13 +78,17 @@
              :content content
              :_id id
              :tags tags
+             :published 0
              :categories categories}]
     (mc/insert "posts" doc)))
 
-
-;(post-content "the importance of consistency" "/Users/shalicke/Documents/the_importance_of_consistency.html")
-
-
+(defn- publish-content [slug-name]
+  (let [slug (slugify (vector slug-name))]
+    (when (connected?)
+      (mc/update "posts" {:slug slug} {:published 1}))))
 
 (defn- add-tag [])
 (defn- add-category [])
+
+;(post-content "the importance of consistency" "/Users/shalicke/Documents/the_importance_of_consistency.html")
+

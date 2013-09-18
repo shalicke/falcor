@@ -1,8 +1,8 @@
-(defproject falcor "0.1.0"
-  :description "FIXME: write description"
+(defproject falcor "0.2.0"
+  :description "Hey, it's my blog."
   :url "http://sam.halicke.com"
-  :license {:name "CC Attribution Share Alike By SA"
-            :url "http://creativecommons.org"}
+  :license {:name "EPL"
+            :url "http://eclipse.org"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojars.samhalicke/compojure "1.2.1-SNAPSHOT"]
                  [ring/ring-jetty-adapter "1.2.0"]

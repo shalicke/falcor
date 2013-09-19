@@ -78,7 +78,7 @@
              :content content
              :_id id
              :tags tags
-             :published 0
+             :published 1
              :categories categories}]
     (mc/insert "posts" doc)))
 
@@ -90,5 +90,5 @@
 (defn- add-tag [])
 (defn- add-category [])
 
-;(post-content "the importance of consistency" "/Users/shalicke/Documents/the_importance_of_consistency.html")
+(post-content "hiccup notes" "/Users/shalicke/Documents/hiccup_notes.html")
 

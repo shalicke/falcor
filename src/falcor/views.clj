@@ -37,6 +37,7 @@
      (include-css "/css/codemirror.css")
      (include-css "/css/falcor.css")
      (include-js "/js/codemirror.js")
+     (include-js "/js/cm-modes/clojure.js")
      (include-js "/js/falcor.js")
      "<!--[if lt IE 9]><script src=\"/js/html5shiv.js\"></script><script src=\"/js/respond.min.js\"></script><![endif]-->"]
     [:body

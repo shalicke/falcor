@@ -90,5 +90,6 @@
 (defn- add-tag [])
 (defn- add-category [])
 
-(post-content "hiccup notes" "/Users/shalicke/Documents/hiccup_notes.html")
-
+(comment
+  (post-content "hiccup notes" "/Users/shalicke/Documents/hiccup_notes.html")
+)

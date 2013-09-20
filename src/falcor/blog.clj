@@ -2,6 +2,8 @@
   "Blog functionality"
   (:import [java.lang Exception])
   (:require [markdown.core :as md]
+            [clj-time.format :as tf]
+            [clj-time.coerce :as tc]
             [clojure.string :as str]
             [monger.collection :as mc]
             [monger.operators :refer [$gt $lt]]
@@ -31,6 +33,11 @@
    (map
     #(-> (str/join "-" (str/split % #"\s")) (str/lower-case)) slug-name)))
 
+(defn print-date
+  [timestamp]
+  (let [dt (tc/from-long timestamp)]
+    (tf/unparse (tf/formatters :date) (tc/from-long timestamp))))
+
 (defn blog-index []
   (if (connected?)
     (let [recent-posts
@@ -41,7 +48,7 @@
             (q/limit 10))]
       [[:ul.post-list
         (for [post recent-posts]
-          [:li [:a {:href (str "/blog/posts/" (first (:slug post)) "/")} (first (titlefy (:slug post)))]])]])))
+          [:li [:a {:href (str "/blog/posts/" (first (:slug post)) "/")} (print-date (:_id post)) " " (first (titlefy (:slug post)))]])]])))
 
 (defn retrieve-content
   [& {:keys [slug timestamp]}]

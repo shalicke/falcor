@@ -29,16 +29,18 @@
   ga('send', 'pageview');" ]
      [:title {} "neuros.es - the home of Sam Halicke on the web"]
      (include-js "//code.jquery.com/jquery.min.js")
-     (include-bootstrap)
+     (include-js "/js/bootstrap.min.js")
      (include-css "/css/fonts.css")
-     (use-bootswatch-theme "functor")
+     (include-css "/css/functor.css")
      (include-css "/css/jumbotron-narrow.css")
      (include-css "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css")
-     (include-css "/css/codemirror.css")
      (include-css "/css/falcor.css")
-     (include-js "/js/codemirror.js")
-     (include-js "/js/cm-modes/clojure.js")
-     (include-js "/js/falcor.js")
+     (include-css "/css/shCore.css")
+     (include-css "/css/shClojureExtra.css")
+     ;(include-js "/js/falcor.js")
+     (include-js "/js/shCore.js")
+     (include-js "/js/shBrushClojure.js")
+     [:script "SyntaxHighlighter.all();"]
      "<!--[if lt IE 9]><script src=\"/js/html5shiv.js\"></script><script src=\"/js/respond.min.js\"></script><![endif]-->"]
     [:body
      [:div#wrap
@@ -63,13 +65,17 @@
           [:li [:a {:href "/blog/"} "blog"]]]]
         ]
        [:div#content
-       (for [frag (:pre content-map)] frag)
-       (for [frag (:main content-map)] frag)
-       (for [frag (:post content-map)] frag)
-       (for [frag (:disqus content-map)] frag)]]]
+        (for [frag (:pre content-map)] frag)
+        (for [frag (:main content-map)] frag)
+        (for [frag (:post content-map)] frag)
+        (when-not (empty? (:disqus content-map))
+          [:hr.separator])
+        (for [frag (:disqus content-map)] frag)
+        ]]]
      [:div#footer.container
       [:blockquote.text-muted "Il semble que la perfection soit atteinte non quand il n'y a plus rien à ajouter, mais quand il n'y a plus rien à retrancher."]
-      [:p.text-muted.pull-right "- Antoine de Saint Exupery"]]]))
+      [:p.text-muted.pull-right "- Antoine de Saint Exupery"]]
+     ]))
 
 (defn index-page [_]
   (template-base

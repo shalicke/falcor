@@ -139,3 +139,10 @@ html, body {
 .hand-tip:before {
   content: "☞"
 }
+
+code .functions {
+  color: #343434;
+}
+
+
+

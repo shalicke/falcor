@@ -38,6 +38,7 @@
   (let [dt (tc/from-long timestamp)]
     (tf/unparse (tf/formatters :date) (tc/from-long timestamp))))
 
+
 (defn blog-index []
   (if (connected?)
     (let [recent-posts

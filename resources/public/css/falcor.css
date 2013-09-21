@@ -140,9 +140,12 @@ html, body {
   content: "☞"
 }
 
-code .functions {
-  color: #343434;
+div.syntaxhighlighter div.alt1 {
+  background-color: #fafafa;
 }
 
+div.syntaxhighlighter div.alt2 {
+  background-color: #fefefe;
+}
 
 
